@@ -33,3 +33,185 @@ export default class Result extends Component {
         )
     }
 }
+
+
+
+[
+    [
+        {
+            "title": "请选择图中有多少只鸡",
+            "questions": [
+                {
+                    "url": "https://s3-ap-northeast-1.amazonaws.com/tokyoimg/chick.png"
+                }
+            ],
+            "type":"判断",
+            "options": [
+                {
+                    "num": 0,
+                    "value": 1,
+                    "text": "9只"
+                },
+                {
+                    "num": 1,
+                    "value": 0,
+                    "text": "10只"
+                },
+                {
+                    "num": 2,
+                    "value": 0,
+                    "text": "8只"
+                },
+                {
+                    "num": 3,
+                    "value": 0,
+                    "text": "11只"
+                }
+            ]
+        },
+        {
+            "title": "今年是哪年",
+            "type":"反应",
+            "options": [
+                {
+                    "num": 0,
+                    "value": 0,
+                    "text": "2015"
+                },
+                {
+                    "num": 1,
+                    "value": 0,
+                    "text": "2017"
+                },
+                {
+                    "num": 2,
+                    "value": 0,
+                    "text": "2019"
+                },
+                {
+                    "num": 3,
+                    "value": 1,
+                    "text": "2018"
+                }
+            ]
+        }
+    ],
+    [
+        {
+                "title": "请选择图中有多少只鸡",
+                "questions": [
+                    {
+                        "url": "https://s3-ap-northeast-1.amazonaws.com/tokyoimg/chick.png"
+                    }
+                ],
+                "type":"判断",
+                "options": [
+                    {
+                        "num": 0,
+                        "value": 1,
+                        "text": "9只"
+                    },
+                    {
+                        "num": 1,
+                        "value": 0,
+                        "text": "10只"
+                    },
+                    {
+                        "num": 2,
+                        "value": 0,
+                        "text": "8只"
+                    },
+                    {
+                        "num": 3,
+                        "value": 0,
+                        "text": "11只"
+                    }
+                ]
+            },
+        {
+                "title": "今年是哪年",
+                "type":"反应",
+                "options": [
+                    {
+                        "num": 0,
+                        "value": 0,
+                        "text": "2015"
+                    },
+                    {
+                        "num": 1,
+                        "value": 0,
+                        "text": "2017"
+                    },
+                    {
+                        "num": 2,
+                        "value": 0,
+                        "text": "2019"
+                    },
+                    {
+                        "num": 3,
+                        "value": 1,
+                        "text": "2018"
+                    }
+                ]
+            }
+    ],
+    [
+        {
+                "title": "请选择图中有多少只鸡",
+                "questions": [
+                    {
+                        "url": "https://s3-ap-northeast-1.amazonaws.com/tokyoimg/chick.png"
+                    }
+                ],
+                "type":"判断",
+                "options": [
+                    {
+                        "num": 0,
+                        "value": 1,
+                        "text": "9只"
+                    },
+                    {
+                        "num": 1,
+                        "value": 0,
+                        "text": "10只"
+                    },
+                    {
+                        "num": 2,
+                        "value": 0,
+                        "text": "8只"
+                    },
+                    {
+                        "num": 3,
+                        "value": 0,
+                        "text": "11只"
+                    }
+                ]
+            },
+        {
+                "title": "今年是哪年",
+                "type":"反应",
+                "options": [
+                    {
+                        "num": 0,
+                        "value": 0,
+                        "text": "2015"
+                    },
+                    {
+                        "num": 1,
+                        "value": 0,
+                        "text": "2017"
+                    },
+                    {
+                        "num": 2,
+                        "value": 0,
+                        "text": "2019"
+                    },
+                    {
+                        "num": 3,
+                        "value": 1,
+                        "text": "2018"
+                    }
+                ]
+            }
+    ]
+]

@@ -1,0 +1,13 @@
+.common {
+  border-radius: 10px;
+  background-color: #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+.item {
+  background-color: #ccc;
+}
+.active {
+  background-color: #86576f;
+}
