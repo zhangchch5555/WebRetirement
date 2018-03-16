@@ -1,0 +1,16 @@
+.table-box {
+  display: table;
+  width: 95%;
+  margin: auto;
+  border: 1px solid #000;
+  margin-top: 50px;
+}
+.table-row {
+  display: table-row;
+}
+.table-cell {
+  display: table-cell;
+  border: 1px solid #000;
+  text-align: center;
+}
+

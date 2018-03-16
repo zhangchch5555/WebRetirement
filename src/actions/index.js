@@ -1,8 +1,8 @@
 import API from '../utils/Api';
 
-export const PREV = 'PREV';
-export const NEXT = 'NEXT';
-export const SELECT = 'SELECT';
+export const PREVBUTTON = 'PREVBUTTON';
+export const NEXTBUTTON = 'NEXTBUTTON';
+export const OPTION = 'OPTION';
 
 export const REQUEST_START = 'REQUEST_START';
 export const REQUEST_SUCCESS = 'REQUEST_SUCCESS';
@@ -12,7 +12,7 @@ export const REQUEST_FAIL = 'REQUEST_FAIL';
 
 export const prevBtn = (currentIndex,questionData) => {
     return {
-        type: PREV,
+        type: PREVBUTTON,
         currentIndex:currentIndex,
         questionData:questionData,
     }
@@ -20,15 +20,16 @@ export const prevBtn = (currentIndex,questionData) => {
 
 export const nextBtn = (currentIndex,questionData) => {
     return {
-        type: NEXT,
+        type: NEXTBUTTON,
         currentIndex:currentIndex,
         questionData:questionData,
+        selectedNum: -1,
     }
 }
 
-export const optionClick = (num) => {
+export const option = (num) => {
     return {
-        type: SELECT,
+        type: OPTION,
         clickFlag: true,
         selectedNum: num,
     }
@@ -41,22 +42,22 @@ function requestPosts(url) {
     }
 }
 
-export function fetchPosts(url) {
+export const fetchPosts = (url) => {
     return function (dispatch) {
         dispatch(requestPosts(url))
 
         return API.fetchApiData(url)
             .then(
-                json => dispatch(receiveQuestionsData(json)),
+                json => dispatch(receiveQuestionData(json)),
                 error => console.log(error)
             )
     }
 }
 
-function receiveQuestionsData(result) {
+function receiveQuestionData(result) {
     return {
         type: REQUEST_SUCCESS,
-        questionsData:result,
+        questionData:result,
     }
 }
 

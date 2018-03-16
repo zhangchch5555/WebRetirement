@@ -1,12 +1,20 @@
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import { prevBtn,nextBtn } from '../actions/index'
 import PrevNextBtn from '../components/PrevNextBtn'
 
-const mapStateToProps = (state,ownProps) => {
-    return {
-        currentIndex: state.currentIndex || ownProps.currentIndex,
-        questionData:state.questionData || ownProps.questionData,
+const mapStateToProps = (state) => {
+    if(state.fetchQuestionData.questionData.length > 0 ) {
+        console.log(state);
+        return {
+            currentIndex: state.questionList.currentIndex,
+            questionData:state.questionList.questionData[state.questionList.currentIndex],
+            btnSum : state.questionList.questionData.length,
+        }
+    } else {
+        return {
+            currentIndex: state.currentIndex,
+            questionData:state.fetchQuestionData.questionData[0],
+        }
     }
 }
 

@@ -1,25 +1,28 @@
 import { connect } from 'react-redux'
-import { optionClick } from '../actions/index'
+import { optionClick,option } from '../actions/index'
 import Questions from '../components/Questions'
 
-const mapStateToProps = (state,ownProps) => {
-    let questionData = [];
-    if(state.prevNextBtn.questionData.length === 0) {
-        questionData = ownProps.questionData
-    } else {
-        questionData = state.prevNextBtn.questionData
-    }
+const mapStateToProps = (state) => {
     console.log(state);
-    return {
-        selectedNum: state.optionClick.selectedNum,
-        questionData,
+    if( state.fetchQuestionData.questionData.length > 0 ) {
+
+        let selectedNum = state.questionList.clickFlag ? state.questionList.selectedNum : -1;
+        return {
+            selectedNum: selectedNum,
+            questionData:state.fetchQuestionData.questionData[state.questionList.currentIndex],
+        }
+    } else {
+        return {
+            selectedNum: '',
+            questionData:[],
+        }
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         optionClick: (num) => {
-            dispatch(optionClick(num))
+            dispatch(option(num))
         }
     }
 }

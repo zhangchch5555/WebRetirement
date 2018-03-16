@@ -1,41 +1,34 @@
 import { combineReducers } from 'redux'
-import { PREV, NEXT, SELECT, REQUEST_SUCCESS, REQUEST_FAIL } from '../actions/index'
+import { PREV, NEXT, OPTION, SELECT, RESET,PREVBUTTON,NEXTBUTTON, REQUEST_SUCCESS, REQUEST_FAIL } from '../actions/index'
 
 let initState = {
     currentIndex: 0,
     clickFlag: false,
     selectedNum: -1,
-    questionData: []
+    questionData: {}
 }
 
 /**
- * 点击前进后退按钮的reducer函数
+ * 点击前进后退按钮及选项的reducer函数
  * @params state 当前的state
- * @params action 前进后退按钮action
+ * @params action 前进后退按钮及选项action
  * @return 点击后的state
  * */
-const prevNextBtn = (state=initState,action) => {
+const questionList  = (state=initState,action) => {
+    console.log(action);
     switch (action.type) {
-        case PREV:
-            return Object.assign({},state,{currentIndex: action.currentIndex,questionData:action.questionData})
-        case NEXT:
-            return Object.assign({},state,{currentIndex: action.currentIndex,questionData:action.questionData})
-        default:
-            return state
-    }
-}
-
-/**
- * 点击选项后的reducer函数
- * @params state 当前的state
- * @params action 选项action
- * @return 点击后的state
- * */
-const optionClick = (state=initState,action) => {
-    switch (action.type) {
-        case SELECT:
+        case OPTION:
             return Object.assign({},state,{
                 clickFlag: action.clickFlag,
+                selectedNum: action.selectedNum,
+            })
+        case PREVBUTTON:
+            return Object.assign({},state,{
+                currentIndex: action.currentIndex,
+            })
+        case NEXTBUTTON:
+            return Object.assign({},state,{
+                currentIndex: action.currentIndex,
                 selectedNum: action.selectedNum,
             })
         default:
@@ -52,7 +45,8 @@ const optionClick = (state=initState,action) => {
 const fetchQuestionData = (state=initState,action) => {
     switch (action.type) {
         case REQUEST_SUCCESS:
-            return Object.assign({},state,{questionsData: action.questionsData})
+            initState.questionData = action.questionData;
+            return Object.assign({},state,{questionData: action.questionData})
         case REQUEST_FAIL:
             return Object.assign({},state,{message: action.message})
         default:
@@ -61,8 +55,7 @@ const fetchQuestionData = (state=initState,action) => {
 }
 
 const appReducer = combineReducers({
-    prevNextBtn,
-    optionClick,
+    questionList,
     fetchQuestionData,
 })
 

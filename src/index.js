@@ -5,17 +5,14 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 
 import { App } from './containers/App';
-import Result from './Result';
+import Result from './components/Result';
 import './index.css';
-
-store.subscribe(() => {
-    console.log(store.getState());
-})
 
 const PrimaryLayout = () => (
     <div>
         <main>
             <Route path="/" exact component={App} />
+            <Route path="/result" component={Result} />
         </main>
     </div>
 )
