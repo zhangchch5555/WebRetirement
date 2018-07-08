@@ -3,9 +3,7 @@ import { optionClick,option } from '../actions/index'
 import Questions from '../components/Questions'
 
 const mapStateToProps = (state) => {
-    console.log(state);
     if( state.fetchQuestionData.questionData.length > 0 ) {
-
         let selectedNum = state.questionList.clickFlag ? state.questionList.selectedNum : -1;
         return {
             selectedNum: selectedNum,
@@ -21,8 +19,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        optionClick: (num) => {
-            dispatch(option(num))
+        optionClick: (num, val) => {
+            dispatch(option(num, val))
         }
     }
 }

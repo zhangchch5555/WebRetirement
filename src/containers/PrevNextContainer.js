@@ -4,11 +4,12 @@ import PrevNextBtn from '../components/PrevNextBtn'
 
 const mapStateToProps = (state) => {
     if(state.fetchQuestionData.questionData.length > 0 ) {
-        console.log(state);
         return {
             currentIndex: state.questionList.currentIndex,
             questionData:state.questionList.questionData[state.questionList.currentIndex],
             btnSum : state.questionList.questionData.length,
+            value: state.questionList.value,
+            selectedNum: state.questionList.selectedNum,
         }
     } else {
         return {

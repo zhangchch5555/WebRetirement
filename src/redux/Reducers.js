@@ -15,12 +15,12 @@ let initState = {
  * @return 点击后的state
  * */
 const questionList  = (state=initState,action) => {
-    console.log(action);
     switch (action.type) {
         case OPTION:
             return Object.assign({},state,{
                 clickFlag: action.clickFlag,
                 selectedNum: action.selectedNum,
+                value: action.value,
             })
         case PREVBUTTON:
             return Object.assign({},state,{
