@@ -4,6 +4,7 @@ import PrevNextContainer from './PrevNextContainer'
 import QuestionsContainer from './QuestionsContainer'
 import PropTypes from 'prop-types'
 import store from '../store/store';
+import API from '../utils/Api';
 import { fetchPosts } from '../actions/index'
 
 export class App extends Component {

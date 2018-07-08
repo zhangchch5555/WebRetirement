@@ -4,6 +4,7 @@ import Btn from './Btn';
 import './PrevNextBtn.css';
 
 let result = {};
+let typeSum = [];
 
 export default class PrevNextBtn extends Component {
     constructor(props) {
@@ -12,12 +13,13 @@ export default class PrevNextBtn extends Component {
 
     getResult(typeSum) {
         let sum = {};
-        typeSum.forEach(function (index) {
-            sum[index] = 0;
+        let typeArr = Object.keys(typeSum);
+        typeArr.forEach((type) => {
+            sum[type] = 0;
         });
-        typeSum.forEach(function (item) {
-            for(let index in typeSum[item]) {
-                sum[item] = sum[item] + typeSum[item][index];
+        typeArr.forEach((type) => {
+            for(let index in typeSum[type]) {
+                sum[type] = sum[type] + typeSum[type][index];
             }
         });
         return sum;
@@ -29,14 +31,14 @@ export default class PrevNextBtn extends Component {
      * @params num value 选项号对应的值
      * @return setQuestionData array 当前题目数据
      * */
-    setResult(num,value) {
+    setResult(num, value, btnSum) {
         let index = this.props.currentIndex;
         let type = this.props.questionData['type'];
+        typeSum[type] = {};
         //questionData[index]['clickedFlag'] = true;
-        console.log(questionData);
-        questionData[index]['clickedNum'] = num;
+        //questionData[index]['clickedNum'] = num;
         typeSum[type][index] = value;
-        if(index == questionsSum-1) {
+        if(index == btnSum-1) {
             result = this.getResult(typeSum);
         }
     }
@@ -76,10 +78,11 @@ export default class PrevNextBtn extends Component {
 
     //绘制界面
     render() {
-        console.log(this.props);
-        let { currentIndex,questionData,clickedFlag,btnSum } = this.props;
+        let { currentIndex,questionData,clickedFlag,btnSum,value,selectedNum } = this.props;
         let lastIndex = btnSum-1;
-        result = this.setResult();
+        if(questionData) {
+            this.setResult(selectedNum, value, btnSum);
+        }
         return this.rendPrevNextBtn({currentIndex,questionData,lastIndex,clickedFlag,result});
     }
 }

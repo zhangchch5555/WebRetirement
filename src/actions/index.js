@@ -27,11 +27,12 @@ export const nextBtn = (currentIndex,questionData) => {
     }
 }
 
-export const option = (num) => {
+export const option = (num, val) => {
     return {
         type: OPTION,
         clickFlag: true,
         selectedNum: num,
+        value: val,
     }
 }
 
